@@ -1,11 +1,9 @@
 
-const PostRequest = (url, dataObject, setData = null, setError = null) => {
+
+const PostFormData = (url, formData) => {
     fetch(url, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(dataObject)
+        body: formData
     })
         .then(res => {
             if (!res.ok) {
@@ -14,15 +12,11 @@ const PostRequest = (url, dataObject, setData = null, setError = null) => {
             return res.json();
         })
         .then(data => {
-            if (setData) {
-                setData(data)
-            }
             console.log(data);
         })
         .catch(error => {
-            if (setError) { setError(error) }
             console.log(error);
         })
 }
 
-export default PostRequest
+export default PostFormData
