@@ -26,18 +26,18 @@ const ProductDetails = () => {
         formData.append('title', e.target.title.value);
         formData.append('price', e.target.price.value);
         formData.append('image', e.target.image.files[0]);
-        PostFormData('http://127.0.0.1:8000/products/update/' + id, formData);
+        PostFormData('https://basic-api-django.herokuapp.com/products/update/' + id, formData);
         e.target.reset();
         e.target.classList.add('d-none');
         navigate('/');
     }
 
     const deleteProduct = () => {
-        PostRequest('http://127.0.0.1:8000/products/delete/' + id, {});
+        PostRequest('https://basic-api-django.herokuapp.com/products/delete/' + id, {});
         navigate('/');
     }
 
-    const [product] = useFetch('http://127.0.0.1:8000/products/get/' + id);
+    const [product] = useFetch('https://basic-api-django.herokuapp.com/products/get/' + id);
 
 
     return (
@@ -48,7 +48,7 @@ const ProductDetails = () => {
                     <li className="list-group-item d-flex justify-content-between" ref={title}>{product.title}</li>
                     <li className="list-group-item d-flex justify-content-between" ref={price}>{product.price}</li>
                     <li className="list-group-item d-flex justify-content-between">
-                        <img width="170" height="250" src={`http://127.0.0.1:8000${product.image}`} alt="Product Image" ref={image} />
+                        <img width="170" height="250" src={`https://basic-api-django.herokuapp.com${product.image}`} alt="Product Image" ref={image} />
                     </li>
                     <div>
                         <button type="button" className="btn btn-info btn-sm text-white mt-3 float-end" onClick={showForm}>Edit</button>

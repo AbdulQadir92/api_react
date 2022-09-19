@@ -13,7 +13,7 @@ const AddProduct = () => {
         formData.append('price', e.target.price.value);
         formData.append('image', e.target.image.files[0]);
 
-        PostFormData('http://127.0.0.1:8000/products/add', formData);
+        PostFormData('https://basic-api-django.herokuapp.com/products/add', formData);
 
         e.target.reset();
         navigate('/');

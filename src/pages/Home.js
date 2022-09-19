@@ -5,7 +5,7 @@ import useFetch from '../hooks/useFetch';
 
 const Home = () => {
 
-    const [data, error] = useFetch('http://127.0.0.1:8000/products');
+    const [data, error] = useFetch('https://basic-api-django.herokuapp.com/products');
 
     return (
         <div id="home" className="w-50 mx-auto mt-5">
